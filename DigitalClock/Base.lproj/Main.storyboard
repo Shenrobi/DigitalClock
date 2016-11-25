@@ -1,14 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DigitalClock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +18,102 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzv-Pb-a5x">
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="59"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMx-x5-2OQ">
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Huo-K1-hfd">
+                                        <segments>
+                                            <segment title="White"/>
+                                            <segment title="Black"/>
+                                            <segment title="Red"/>
+                                            <segment title="Green"/>
+                                        </segments>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="textColorSegPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="oBs-HM-0ZW"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqJ-pA-3iy">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3xm-vw-c1y">
+                                        <segments>
+                                            <segment title="Black"/>
+                                            <segment title="White"/>
+                                            <segment title="Yellow"/>
+                                            <segment title="Blue"/>
+                                        </segments>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="backgroundColorSegPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="7Ss-qW-bg8"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Background Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMI-5I-if2">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="fqJ-pA-3iy" firstAttribute="leading" secondItem="Huo-K1-hfd" secondAttribute="leading" id="0Gm-sf-Zpo"/>
+                                    <constraint firstItem="Huo-K1-hfd" firstAttribute="top" secondItem="fqJ-pA-3iy" secondAttribute="bottom" constant="8" symbolic="YES" id="36l-0r-xhl"/>
+                                    <constraint firstItem="RMI-5I-if2" firstAttribute="top" secondItem="Huo-K1-hfd" secondAttribute="bottom" constant="8" symbolic="YES" id="5v6-Eg-LGH"/>
+                                    <constraint firstItem="RMI-5I-if2" firstAttribute="trailing" secondItem="3xm-vw-c1y" secondAttribute="trailing" id="7lF-2n-puu"/>
+                                    <constraint firstItem="Huo-K1-hfd" firstAttribute="leading" secondItem="RMI-5I-if2" secondAttribute="leading" id="BSv-Da-Rrj"/>
+                                    <constraint firstItem="fqJ-pA-3iy" firstAttribute="trailing" secondItem="NMx-x5-2OQ" secondAttribute="trailingMargin" id="RVk-eX-IER"/>
+                                    <constraint firstItem="RMI-5I-if2" firstAttribute="leading" secondItem="3xm-vw-c1y" secondAttribute="leading" id="Zj4-OW-0K0"/>
+                                    <constraint firstItem="fqJ-pA-3iy" firstAttribute="trailing" secondItem="Huo-K1-hfd" secondAttribute="trailing" id="dRq-lX-ztW"/>
+                                    <constraint firstItem="3xm-vw-c1y" firstAttribute="top" secondItem="RMI-5I-if2" secondAttribute="bottom" constant="9" id="fc1-ye-ZsH"/>
+                                    <constraint firstAttribute="height" constant="151" id="p0D-DQ-2vA"/>
+                                    <constraint firstItem="fqJ-pA-3iy" firstAttribute="top" secondItem="NMx-x5-2OQ" secondAttribute="top" constant="14" id="qat-OQ-Avp"/>
+                                    <constraint firstItem="fqJ-pA-3iy" firstAttribute="leading" secondItem="NMx-x5-2OQ" secondAttribute="leadingMargin" id="rcI-fa-Ip6"/>
+                                    <constraint firstItem="Huo-K1-hfd" firstAttribute="trailing" secondItem="RMI-5I-if2" secondAttribute="trailing" id="wNY-6c-xOR"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNA-ic-3zd">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Show Settings">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aWS-Ta-0AW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kzv-Pb-a5x" secondAttribute="bottom" constant="20" id="1nR-Qe-g0b"/>
+                            <constraint firstItem="nNA-ic-3zd" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Ai5-G3-Xe3"/>
+                            <constraint firstItem="NMx-x5-2OQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Bac-es-0bN"/>
+                            <constraint firstItem="NMx-x5-2OQ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="DQB-rG-e4w"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nNA-ic-3zd" secondAttribute="bottom" constant="20" id="DuF-gY-c48"/>
+                            <constraint firstItem="Kzv-Pb-a5x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Of3-vk-KvB"/>
+                            <constraint firstItem="Kzv-Pb-a5x" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Plt-l9-tHd"/>
+                            <constraint firstItem="nNA-ic-3zd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hMw-Yh-r2z"/>
+                            <constraint firstItem="nNA-ic-3zd" firstAttribute="top" secondItem="NMx-x5-2OQ" secondAttribute="bottom" constant="8" id="iK4-Si-NJD"/>
+                            <constraint firstItem="Kzv-Pb-a5x" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="lzT-Fa-Et1"/>
+                            <constraint firstItem="nNA-ic-3zd" firstAttribute="top" secondItem="NMx-x5-2OQ" secondAttribute="bottom" constant="8" id="ocD-hB-j9E"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundColorSegment" destination="3xm-vw-c1y" id="by6-Sp-GkY"/>
+                        <outlet property="digitalClockLabel" destination="Kzv-Pb-a5x" id="ggf-w1-Aqy"/>
+                        <outlet property="settingsButton" destination="nNA-ic-3zd" id="jZ3-Ae-eEu"/>
+                        <outlet property="settingsView" destination="NMx-x5-2OQ" id="4CE-xT-UKk"/>
+                        <outlet property="textColorSegment" destination="Huo-K1-hfd" id="bWe-dg-Qi1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
